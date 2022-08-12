@@ -1,0 +1,11 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    --color-primary: var(--cui-color-primary, blue);
+    --color-danger: var(--cui-color-danger, red);
+}
+
+div.hola {
+    background: var(--color-danger);
+}

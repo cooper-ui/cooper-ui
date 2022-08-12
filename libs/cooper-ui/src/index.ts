@@ -1,1 +1,1 @@
-export * from './lib/cooper-ui.module';
+export * from './components/color-palette/color-palette.component.module';
