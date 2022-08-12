@@ -1,11 +1,49 @@
+@import './../colors.scss';
+
 :host {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--color-shadow);
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    --color-primary: var(--cui-color-primary, blue);
-    --color-danger: var(--cui-color-danger, red);
-}
-
-div.hola {
-    background: var(--color-danger);
+    padding: 40px;
+    text-align: center;
+    h1 {
+        color: var(--color-foreground);
+        font-family: sans-serif;
+        margin: 0;
+    }
+    p {
+        color: var(--color-subtitle);
+        font-family: sans-serif;
+        margin: 15px 0 25px;
+    }
+    div.items {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        div.item {
+            border-radius: 4px;
+            color: var(--color-contrast);
+            font-family: sans-serif;
+            padding: 10px;
+            text-align: center;
+            &.primary {
+                background: var(--color-primary);
+            }
+            &.accent {
+                background: var(--color-accent);
+            }
+            &.success {
+                background: var(--color-success);
+            }
+            &.warning {
+                background: var(--color-warning);
+            }
+            &.danger {
+                background: var(--color-danger);
+            }
+        }
+    }
 }

@@ -1,0 +1,39 @@
+:host {
+
+    // Primary
+    --color-primary: var(--cui-color-primary, #0984e3);
+
+    // Accent
+    --color-accent: var(--cui-color-accent, #e91e63);
+
+    // Success
+    --color-success: var(--cui-color-success, #00b894);
+
+    // Warning
+    --color-warning: var(--cui-color-warning, #fdcb6e);
+
+    // Danger
+    --color-danger: var(--cui-color-danger, #d63031);
+
+    // Background
+    --color-background: var(--cui-color-background, #ffffff);
+
+    // Light
+    --color-light: var(--cui-color-light, #fafafa);
+
+    // Shadow
+    --color-shadow: var(--cui-color-shadow, #e0e0e0);
+
+    // Border
+    --color-border: var(--cui-color-border, #d2dae2);
+
+    // Subtitle
+    --color-subtitle: var(--cui-color-subtitle, #485460);
+
+    // Foreground
+    --color-foreground: var(--cui-color-foreground, #1e272e);
+
+    // Contrast = Background
+    --color-contrast: var(--cui-color-contrast, #fff);
+
+}

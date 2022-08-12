@@ -1,8 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
 
-
-
 :root {
-    --cui-color-primary: #6495ed;
-    --cui-color-danger: red;
+
+    // Colors
+    --cui-color-primary:    #0984e3;   // Primary
+    --cui-color-accent:     #e91e63;   // Accent
+    --cui-color-success:    #00b894;   // Success
+    --cui-color-warning:    #fdcb6e;   // Warning
+    --cui-color-danger:     #d63031;   // Danger
+
+    // Base
+    --cui-color-background: #ffffff;   // Background
+    --cui-color-light:      #fafafa;   // Light
+    --cui-color-shadow:     #e0e0e0;   // Shadow
+    --cui-color-border:     #d2dae2;   // Border
+    --cui-color-subtitle:   #485460;   // Subtitle
+    --cui-color-foreground: #1e272e;   // Foreground;
+    --cui-color-contrast:   #ffffff;   // Contrast = Background
+
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        // Colors
+        --cui-color-primary:    #9ccaed;   // Primary
+        --cui-color-accent:     #f2bdcf;   // Accent
+        --cui-color-success:    #6cd8c2;   // Success
+        --cui-color-warning:    #d9c090;   // Warning
+        --cui-color-danger:     #de8c8c;   // Danger
+
+        // Base
+        --cui-color-background: #222222;   // Background
+        --cui-color-light:      #333333;   // Light
+        --cui-color-shadow:     #343434;   // Shadow
+        --cui-color-border:     #414141;   // Border
+        --cui-color-subtitle:   #b0b0b0;   // Subtitle
+        --cui-color-foreground: #fafafa;   // Foreground;
+        --cui-color-contrast:   #222222;   // Contrast = Background
+    }
+}
+
+body {
+    background: var(--cui-color-light);
+    margin: 0;
+    padding: 0;
 }
