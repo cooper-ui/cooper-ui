@@ -2,6 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "cooper-playbook": "apps/cooper-playbook"
+    "cooper-playbook": "apps/cooper-playbook",
+    "cooper-ui": "libs/cooper-ui"
   }
 }

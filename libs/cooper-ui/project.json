@@ -1,0 +1,41 @@
+{
+  "projectType": "library",
+  "sourceRoot": "libs/cooper-ui/src",
+  "prefix": "cui",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/cooper-ui"],
+      "options": {
+        "project": "libs/cooper-ui/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/cooper-ui/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/cooper-ui/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/cooper-ui"],
+      "options": {
+        "jestConfig": "libs/cooper-ui/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/cooper-ui/**/*.ts",
+          "libs/cooper-ui/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
