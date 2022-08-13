@@ -1,1 +1,3 @@
-export * from './lib/cooper-ui.module';
+export * from './components';
+export * from './directives';
+export * from './shared';

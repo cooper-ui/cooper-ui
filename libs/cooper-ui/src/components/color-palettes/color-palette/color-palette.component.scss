@@ -1,0 +1,14 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    div.palette-color {
+        color: var(--color-base-50);
+        font-family: sans-serif;
+        padding: 10px 30px;
+        text-align: center;
+    }
+    div.palette-color:nth-child(-n+5) {
+        color: var(--color-base-900);
+    }
+}
