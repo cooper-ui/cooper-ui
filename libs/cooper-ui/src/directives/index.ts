@@ -1,7 +1,8 @@
 import { CommonModule }                   from '@angular/common';
 import { NgModule }                       from '@angular/core';
 // --------------------------------------------------------
-import { CooperBackgroundColorDirective } from './background-color.directive';
+import { CooperBackgroundColorDirective } from './colors/background-color.directive';
+import { CooperColorDirective }           from './colors/color.directive';
 
 @NgModule({
     imports: [
@@ -9,10 +10,12 @@ import { CooperBackgroundColorDirective } from './background-color.directive';
     ],
     declarations: [
         CooperBackgroundColorDirective,
+        CooperColorDirective,
     ],
     exports: [
         CooperBackgroundColorDirective,
+        CooperColorDirective,
     ],
-    providers: [],
+    providers: [ ],
 })
 export class CooperDirectivesModule { }

@@ -3,7 +3,7 @@ import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 @Directive({ selector: '[cui-bg-color]' })
 export class CooperBackgroundColorDirective implements OnInit {
 
-    @Input('cui-bg-color') public color: 'primary' | 'danger' = 'danger';
+    @Input('cui-bg-color') public color = 'primary-500';
 
     constructor(
         private elementRef: ElementRef,
