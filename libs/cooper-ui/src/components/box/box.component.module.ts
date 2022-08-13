@@ -1,18 +1,18 @@
-import { CommonModule }       from '@angular/common';
-import { NgModule }           from '@angular/core';
+import { CommonModule }    from '@angular/common';
+import { NgModule }        from '@angular/core';
 // --------------------------------------------------------
-import { CooperBoxComponent } from './box.component';
+import { CuiBoxComponent } from './box.component';
 
 @NgModule({
     imports: [
         CommonModule,
     ],
     declarations: [
-        CooperBoxComponent
+        CuiBoxComponent
     ],
     exports: [
-        CooperBoxComponent,
+        CuiBoxComponent,
     ],
     providers: [ ],
 })
-export class CooperBoxComponentModule { }
+export class CuiBoxComponentModule { }

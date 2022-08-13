@@ -1,21 +1,21 @@
-import { CommonModule }                   from '@angular/common';
-import { NgModule }                       from '@angular/core';
+import { CommonModule }                from '@angular/common';
+import { NgModule }                    from '@angular/core';
 // --------------------------------------------------------
-import { CooperBackgroundColorDirective } from './colors/background-color.directive';
-import { CooperColorDirective }           from './colors/color.directive';
+import { CuiBackgroundColorDirective } from './colors/background-color.directive';
+import { CuiColorDirective }           from './colors/color.directive';
 
 @NgModule({
     imports: [
         CommonModule,
     ],
     declarations: [
-        CooperBackgroundColorDirective,
-        CooperColorDirective,
+        CuiBackgroundColorDirective,
+        CuiColorDirective,
     ],
     exports: [
-        CooperBackgroundColorDirective,
-        CooperColorDirective,
+        CuiBackgroundColorDirective,
+        CuiColorDirective,
     ],
     providers: [ ],
 })
-export class CooperDirectivesModule { }
+export class CuiDirectivesModule { }

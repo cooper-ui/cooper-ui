@@ -1,26 +1,24 @@
-import { CommonModule }                 from '@angular/common';
-import { NgModule }                     from '@angular/core';
+import { CommonModule }              from '@angular/common';
+import { NgModule }                  from '@angular/core';
 // --------------------------------------------------------
-import { CooperDirectivesModule }       from '../../directives';
-import { CooperBoxComponentModule }     from '../box/box.component.module';
+import { CuiDirectivesModule }       from '../../directives';
 // --------------------------------------------------------
-import { CooperColorPalettesComponent } from './color-palettes.component';
-import { CooperColorPaletteComponent }  from './color-palette/color-palette.component';
+import { CuiColorPalettesComponent } from './color-palettes.component';
+import { CuiColorPaletteComponent }  from './color-palette/color-palette.component';
 
 @NgModule({
     imports: [
         CommonModule,
-        CooperDirectivesModule,
-        CooperBoxComponentModule,
+        CuiDirectivesModule,
     ],
     declarations: [
-        CooperColorPalettesComponent,
-        CooperColorPaletteComponent,
+        CuiColorPalettesComponent,
+        CuiColorPaletteComponent,
     ],
     exports: [
-        CooperColorPalettesComponent,
-        CooperColorPaletteComponent,
+        CuiColorPalettesComponent,
+        CuiColorPaletteComponent,
     ],
     providers: [ ],
 })
-export class CooperColorPalettesComponentModule { }
+export class CuiColorPalettesComponentModule { }

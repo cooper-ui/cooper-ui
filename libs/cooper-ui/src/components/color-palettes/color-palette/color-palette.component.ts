@@ -11,7 +11,7 @@ import { CuiColor,
     styleUrls: ['./color-palette.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CooperColorPaletteComponent {
+export class CuiColorPaletteComponent {
 
     @Input() name: CuiColorBase = 'primary';
 

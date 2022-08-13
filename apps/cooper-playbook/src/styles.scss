@@ -1,12 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-body {
-    background: white;
-    margin: 0;
-    padding: 0;
-}
-
-cui-box {
+body, cui-root {
 
     // Base
     --cui-color-base-50:  #f8fafc;
@@ -70,13 +64,15 @@ cui-box {
 
 }
 
+body {
+    background: var(--cui-color-base-100);
+    margin: 0;
+    padding: 0;
+}
+
 @media (prefers-color-scheme: dark) {
 
-    body {
-        background: black;
-    }
-
-    cui-box {
+    body, cui-root {
 
         // Base
         --cui-color-base-900:  #f8fafc;
@@ -139,4 +135,5 @@ cui-box {
         --cui-color-success-50:  #14532d;
     
     }
+
 }

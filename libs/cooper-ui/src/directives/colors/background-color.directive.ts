@@ -7,7 +7,7 @@ import { Directive,
 import { CuiColor }  from './../../shared';
 
 @Directive({ selector: '[cui-bg-color]' })
-export class CooperBackgroundColorDirective implements OnInit {
+export class CuiBackgroundColorDirective implements OnInit {
 
     @Input('cui-bg-color') public color: CuiColor = 'primary-500';
 
