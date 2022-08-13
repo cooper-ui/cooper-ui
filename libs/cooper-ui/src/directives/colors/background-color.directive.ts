@@ -1,9 +1,15 @@
-import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import { Directive,
+         ElementRef,
+         Input,
+         OnInit,
+         Renderer2 } from '@angular/core';
+// --------------------------------------------------------
+import { CuiColor }  from './../../shared';
 
 @Directive({ selector: '[cui-bg-color]' })
 export class CooperBackgroundColorDirective implements OnInit {
 
-    @Input('cui-bg-color') public color = 'primary-500';
+    @Input('cui-bg-color') public color: CuiColor = 'primary-500';
 
     constructor(
         private elementRef: ElementRef,
