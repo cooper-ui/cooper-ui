@@ -23,17 +23,9 @@ cui-box.container {
     }
     div.palettes {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 15px;
         justify-content: center;
-        div.palette-color {
-            color: var(--color-base-50);
-            font-family: sans-serif;
-            padding: 10px 30px;
-            text-align: center;
-        }
-        div.palette-color:nth-child(-n+5) {
-            color: var(--color-base-900);
-        }
     }
 }

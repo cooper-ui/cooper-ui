@@ -1,2 +1,2 @@
 export * from './box/box.component.module';
-export * from './color-palette/color-palette.component.module';
+export * from './color-palettes/color-palettes.component.module';
