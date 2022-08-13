@@ -2,6 +2,8 @@ import { CommonModule }    from '@angular/common';
 import { NgModule }        from '@angular/core';
 // --------------------------------------------------------
 import { CuiBoxComponent } from './box.component';
+// --------------------------------------------------------
+export { CuiBoxComponent } from './box.component';
 
 @NgModule({
     imports: [

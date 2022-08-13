@@ -3,6 +3,9 @@ import { NgModule }                    from '@angular/core';
 // --------------------------------------------------------
 import { CuiBackgroundColorDirective } from './colors/background-color.directive';
 import { CuiColorDirective }           from './colors/color.directive';
+// --------------------------------------------------------
+export { CuiBackgroundColorDirective } from './colors/background-color.directive';
+export { CuiColorDirective }           from './colors/color.directive';
 
 @NgModule({
     imports: [

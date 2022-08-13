@@ -5,6 +5,9 @@ import { CuiDirectivesModule }       from '../../directives';
 // --------------------------------------------------------
 import { CuiColorPalettesComponent } from './color-palettes.component';
 import { CuiColorPaletteComponent }  from './color-palette/color-palette.component';
+// --------------------------------------------------------
+export { CuiColorPalettesComponent } from './color-palettes.component';
+export { CuiColorPaletteComponent }  from './color-palette/color-palette.component';
 
 @NgModule({
     imports: [
