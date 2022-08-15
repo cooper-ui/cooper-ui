@@ -1,0 +1,55 @@
+name: Deployment
+
+on:
+  release:
+    types: [ published ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        env:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12.20.1
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build cooper-ui
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: cooper-ui
+          path: dist/libs/cooper-ui
+
+  deploy:
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+
+      - uses: actions/checkout@v3
+        env:
+          fetch-depth: 1
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: cooper-ui
+          path: dist/libs/cooper-ui
+
+      - name: Install JS Dev Tools
+        run: npm install -g @jsdevtools/npm-publish
+
+      - name: Publish in NPM
+        run: npm-publish --token=${{ secrets.NPM_TOKEN }} ./dist/libs/cooper-ui/package.json
