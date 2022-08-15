@@ -8,31 +8,7 @@ on:
 
 jobs:
 
-  install-dependencies:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        env:
-          fetch-depth: 1
-
-      - name: Cache node modules
-        id: node-modules-cache
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Install Dependencies
-        if: steps.node-modules-cache.outputs.cache-hit != 'true'
-        run: npm ci
-
   build:
-    needs: [ install-dependencies ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -44,17 +20,8 @@ jobs:
           node-version: 12.20.1
           cache: 'npm'
 
-      - name: Cache node modules
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+      - name: Install Dependencies
+        run: npm ci
 
       - name: Build
         run: npm run build cooper-ui
