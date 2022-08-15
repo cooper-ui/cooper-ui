@@ -12,6 +12,10 @@ The scope of this project is limited to `Angular`. Feel free to fork and send PR
 - [ ] Form components
 
 ## Changelog
+- **2022/08/15** - (`v.0.2.1`)
+  - Github Actions: Build test
+  - Github Actions: NPM Deployment script
+
 - **2022/08/13** - (`v.0.1.1`)
   - Readme.md created
 
