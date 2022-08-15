@@ -32,47 +32,28 @@ jobs:
           name: cooper-ui
           path: dist/libs/cooper-ui
 
-  # deploy:
-  #   if: ${{ github.event_name == 'push' }}
-  #   needs: [ build ]
-  #   runs-on: self-hosted
-  #   steps:
+  deploy:
+    if: ${{ github.event_name == 'push' }}
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    steps:
 
-  #     - name: Cancel Previous Runs
-  #       uses: styfle/cancel-workflow-action@0.9.1
-  #       with:
-  #         access_token: ${{ github.token }}
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
 
-  #     - uses: actions/checkout@v3
-  #       env:
-  #         fetch-depth: 1
+      - uses: actions/checkout@v3
+        env:
+          fetch-depth: 1
 
-  #     - uses: actions/download-artifact@v2
-  #       with:
-  #         name: cooper-ui
-  #         path: dist/libs/cooper-ui
+      - uses: actions/download-artifact@v2
+        with:
+          name: cooper-ui
+          path: dist/libs/cooper-ui
 
-  #     - name: Use
-  #       uses: w9jds/firebase-action@master
-  #       with:
-  #         args: use froged-platform
-  #       env:
-  #         FIREBASE_TOKEN: ${{ secrets.DEV_FIREBASE_TOKEN }}
+      - name: Install JS Dev Tools
+        run: npm install -g @jsdevtools/npm-publish
 
-  #     - name: Apply target
-  #       uses: w9jds/firebase-action@master
-  #       with:
-  #         args: target:apply hosting frontend fg-frontend-dev
-  #       env:
-  #         FIREBASE_TOKEN: ${{ secrets.DEV_FIREBASE_TOKEN }}
-
-  #     - name: Deploy to Firebase
-  #       uses: w9jds/firebase-action@master
-  #       with:
-  #         args: deploy --only hosting:frontend
-  #       env:
-  #         FIREBASE_TOKEN: ${{ secrets.DEV_FIREBASE_TOKEN }}
-  #         PROJECT_ID: froged-platform
-
-  #     - name: Clean
-  #       run: sudo rm -rf .firebase
+      - name: Publish in NPM
+        run: npm-publish --token=${{ secrets.NPM_TOKEN }} ./dist/libs/cooper-ui/package.json
