@@ -1,10 +1,8 @@
-name: Staging
+name: Deployment
 
 on:
-  push:
-    branches: [ npm-deployment ]
-  # pull_request:
-  #   types: [ opened, synchronize ]
+  release:
+    types: [ published ]
 
 jobs:
 
@@ -27,13 +25,11 @@ jobs:
         run: npm run build cooper-ui
 
       - uses: actions/upload-artifact@v2
-        if: ${{ github.event_name == 'push' }}
         with:
           name: cooper-ui
           path: dist/libs/cooper-ui
 
   deploy:
-    if: ${{ github.event_name == 'push' }}
     needs: [ build ]
     runs-on: ubuntu-latest
     steps:
