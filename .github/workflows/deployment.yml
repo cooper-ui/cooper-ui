@@ -1,0 +1,111 @@
+name: Staging
+
+on:
+  push:
+    branches: [ npm-deployment ]
+  # pull_request:
+  #   types: [ opened, synchronize ]
+
+jobs:
+
+  install-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        env:
+          fetch-depth: 1
+
+      - name: Cache node modules
+        id: node-modules-cache
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Install Dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+  build:
+    needs: [ install-dependencies ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        env:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12.20.1
+          cache: 'npm'
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Build
+        run: npm run build cooper-ui
+
+      - uses: actions/upload-artifact@v2
+        if: ${{ github.event_name == 'push' }}
+        with:
+          name: cooper-ui
+          path: dist/libs/cooper-ui
+
+  # deploy:
+  #   if: ${{ github.event_name == 'push' }}
+  #   needs: [ build ]
+  #   runs-on: self-hosted
+  #   steps:
+
+  #     - name: Cancel Previous Runs
+  #       uses: styfle/cancel-workflow-action@0.9.1
+  #       with:
+  #         access_token: ${{ github.token }}
+
+  #     - uses: actions/checkout@v3
+  #       env:
+  #         fetch-depth: 1
+
+  #     - uses: actions/download-artifact@v2
+  #       with:
+  #         name: cooper-ui
+  #         path: dist/libs/cooper-ui
+
+  #     - name: Use
+  #       uses: w9jds/firebase-action@master
+  #       with:
+  #         args: use froged-platform
+  #       env:
+  #         FIREBASE_TOKEN: ${{ secrets.DEV_FIREBASE_TOKEN }}
+
+  #     - name: Apply target
+  #       uses: w9jds/firebase-action@master
+  #       with:
+  #         args: target:apply hosting frontend fg-frontend-dev
+  #       env:
+  #         FIREBASE_TOKEN: ${{ secrets.DEV_FIREBASE_TOKEN }}
+
+  #     - name: Deploy to Firebase
+  #       uses: w9jds/firebase-action@master
+  #       with:
+  #         args: deploy --only hosting:frontend
+  #       env:
+  #         FIREBASE_TOKEN: ${{ secrets.DEV_FIREBASE_TOKEN }}
+  #         PROJECT_ID: froged-platform
+
+  #     - name: Clean
+  #       run: sudo rm -rf .firebase
