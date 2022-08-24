@@ -1,15 +1,20 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { CuiColorPalettesComponentModule, CuiRootComponentModule } from 'cooper-ui';
-
-import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { NgModule }               from '@angular/core';
+import { BrowserModule }          from '@angular/platform-browser';
+// --------------------------------------------------------
+import { CuiColorPalettesComponentModule,
+         CuiMenuComponentModule,
+         CuiRootComponentModule } from 'cooper-ui';
+// --------------------------------------------------------
+import { AppComponent }           from './app.component';
 
 @NgModule({
-    declarations: [AppComponent, NxWelcomeComponent],
+    declarations: [
+        AppComponent,
+    ],
     imports: [
         BrowserModule,
         CuiColorPalettesComponentModule,
+        CuiMenuComponentModule,
         CuiRootComponentModule,
     ],
     providers: [],
