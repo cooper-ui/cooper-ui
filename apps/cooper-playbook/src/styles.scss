@@ -65,75 +65,13 @@ body, cui-root {
 }
 
 body {
-    background: var(--cui-color-base-100);
+    background-color: var(--cui-color-base-100);
     margin: 0;
     padding: 0;
 }
 
 @media (prefers-color-scheme: dark) {
-
-    body, cui-root {
-
-        // Base
-        --cui-color-base-900:  #f8fafc;
-        --cui-color-base-800: #f1f5f9;
-        --cui-color-base-700: #e2e8f0;
-        --cui-color-base-600: #cbd5e1;
-        --cui-color-base-500: #94a3b8;
-        --cui-color-base-400: #64748b;
-        --cui-color-base-300: #475569;
-        --cui-color-base-200: #334155;
-        --cui-color-base-100: #1e293b;
-        --cui-color-base-50:  #0f172a;
-
-        // Primary
-        --cui-color-primary-900:  #eff6ff;
-        --cui-color-primary-800: #dbeafe;
-        --cui-color-primary-700: #bfdbfe;
-        --cui-color-primary-600: #93c5fd;
-        --cui-color-primary-500: #60a5fa;
-        --cui-color-primary-400: #3b82f6;
-        --cui-color-primary-300: #2563eb;
-        --cui-color-primary-200: #1d4ed8;
-        --cui-color-primary-100: #1e40af;
-        --cui-color-primary-50:  #1e3a8a;
-
-        // Danger
-        --cui-color-danger-900:  #fef2f2;
-        --cui-color-danger-800: #fee2e2;
-        --cui-color-danger-700: #fecaca;
-        --cui-color-danger-600: #fca5a5;
-        --cui-color-danger-500: #f87171;
-        --cui-color-danger-400: #ef4444;
-        --cui-color-danger-300: #dc2626;
-        --cui-color-danger-200: #b91c1c;
-        --cui-color-danger-100: #991b1b;
-        --cui-color-danger-50:  #7f1d1d;
-
-        // Warning
-        --cui-color-warning-900:  #fefce8;
-        --cui-color-warning-800: #fef9c3;
-        --cui-color-warning-700: #fef08a;
-        --cui-color-warning-600: #fde047;
-        --cui-color-warning-500: #facc15;
-        --cui-color-warning-400: #eab308;
-        --cui-color-warning-300: #ca8a04;
-        --cui-color-warning-200: #a16207;
-        --cui-color-warning-100: #854d0e;
-        --cui-color-warning-50:  #713f12;
-
-        // Success
-        --cui-color-success-900:  #f0fdf4;
-        --cui-color-success-800: #dcfce7;
-        --cui-color-success-700: #bbf7d0;
-        --cui-color-success-600: #86efac;
-        --cui-color-success-500: #4ade80;
-        --cui-color-success-400: #22c55e;
-        --cui-color-success-300: #16a34a;
-        --cui-color-success-200: #15803d;
-        --cui-color-success-100: #166534;
-        --cui-color-success-50:  #14532d;
-    
+    body {
+        background-color: var(--cui-color-base-800);
     }
-
 }
